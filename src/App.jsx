@@ -4,6 +4,9 @@ import Hero from './components/Hero/Hero'
 import Navbar from './components/Navbar/Navbar'
 
 import { BannerData } from './bannerdata'
+import { Banner2Data } from './bannerdata'
+
+import TabComp from './components/Tab/TabComp'
 
 function App() {
   
@@ -20,7 +23,14 @@ function App() {
           )
         })
       }
-      
+      <TabComp/>
+      { 
+        Banner2Data.map ((banner, index) => {
+          return(
+            <Banner key={index} image={banner.image} title={banner.title} subtitle={banner.subtitle} link={banner.link}/>
+          )
+        })
+      }
     </div>
   )
 }
