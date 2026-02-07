@@ -12,14 +12,14 @@ function App() {
   
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden scroll-smooth'>
       <Navbar/>
       <Hero/>
       <Equipments/>
       { 
         BannerData.map ((banner, index) => {
           return(
-            <Banner key={index} image={banner.image} title={banner.title} subtitle={banner.subtitle} link={banner.link}/>
+            <Banner key={index} {...banner}/> /* spread operator used */
           )
         })
       }

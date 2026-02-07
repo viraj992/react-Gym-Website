@@ -7,7 +7,7 @@ export default function Hero(){
     return(
         <>
          <section>
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 grid grid-cols-1 md:grid-cols-2 min-h-162.5 relative">
+            <div className="container grid grid-cols-1 md:grid-cols-2 min-h-screen relative">
                 {/* Brand info */}
                 <div className="flex flex-col justify-center py-14 md:py-0 font-playfair">
                     <div className="text-center md:text-left space-y-6">

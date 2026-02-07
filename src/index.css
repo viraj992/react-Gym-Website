@@ -9,3 +9,7 @@
   --color-primary: #FF8901;
   --color-secondary: #FB923C;
 }
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-18 2xl:px-24
+}

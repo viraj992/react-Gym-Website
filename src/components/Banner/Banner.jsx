@@ -4,7 +4,7 @@ import { SlideUp } from '../../utility/animation';
 
 function Banner({image,title, subtitle, link}) {
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24'>
+    <div className='container'>
         <div className='bg-[#f9f9f9] grid grid-cols-1 md:grid-cols-2 space-y-6 md:space-y-0 py-14 rounded-2xl'>
            {/* Banner Image Section */}
            <div className="flex justify-center items-center">
@@ -12,7 +12,7 @@ function Banner({image,title, subtitle, link}) {
               initial={{opacity:0 , scale: 0.5}}
               whileInView={{opacity:1, scale:1}}
               transition={{type:"spring" , stiffness:100, delay: 0.2}}
-            src={image} className='w-85 md:max-w-100 xl:max-w-150 h-full object-cover'/>
+            src={image} className='w-85 md:max-w-100 xl:max-w-150 h-auto object-cover'/>
            </div>
 
            {/* Banner Text Section */}

@@ -14,7 +14,7 @@ function TabComp() {
 
   return (
     <>
-      <div className='max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 my-12 md:my-16'>
+      <div className='container my-12 md:my-16'>
         {/* Tab button Section */}
         <div className='flex space-x-4 mb-4 p-6'>
           {

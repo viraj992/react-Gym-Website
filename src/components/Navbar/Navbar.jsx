@@ -14,7 +14,7 @@ export default function Navbar(){
     return(
         <>
         <nav>
-          <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 flex justify-between items-center py-8">
+          <div className="container flex justify-between items-center py-8">
             {/* Logo Section */}
             <div className="text-2xl flex items-center gap-2 font-bold uppercase">
                 <FaDumbbell/>

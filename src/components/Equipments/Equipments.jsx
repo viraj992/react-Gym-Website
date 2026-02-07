@@ -34,7 +34,7 @@ const EquipmentData = [
 function Equipments() {
   return (
     <div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 xl:px-20 2xl:px-24 py-24">
+        <div className="container py-24">
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 font-playfair'>
                 <div className="space-y-4 p-6">
                     <h1 className="text-3xl md:text-4xl font-bold">What we offer you</h1>
