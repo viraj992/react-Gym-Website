@@ -1,5 +1,4 @@
 import { NavbarMenu } from "../../mockData/data";
-
 import { PiShoppingCartThin } from "react-icons/pi";
 import { CiSearch } from "react-icons/ci";
 import { MdMenu } from "react-icons/md";
@@ -7,60 +6,93 @@ import { FaDumbbell } from "react-icons/fa";
 import { useState } from "react";
 import ResponsiveMenu from "./ResponsiveMenu";
 
+// Clerk
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  SignOutButton,
+} from "@clerk/clerk-react";
 
-export default function Navbar(){
-    const [open, setOpen] = useState(false);
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
 
-    return(
-        <>
-        <nav>
-          <div className="container flex justify-between items-center py-8">
-            {/* Logo Section */}
-            <div className="text-2xl flex items-center gap-2 font-bold uppercase">
-                <FaDumbbell/>
-                <p>Coders</p>
-                <p className="text-secondary">Gym</p>
-            </div>
+  return (
+    <>
+      <nav>
+        <div className="container flex justify-between items-center py-8">
+          
+          {/* Logo Section */}
+          <div className="text-2xl flex items-center gap-2 font-bold uppercase">
+            <FaDumbbell />
+            <p>Coders</p>
+            <p className="text-secondary">Gym</p>
+          </div>
 
-            {/* Menu Section */}
-            <div className="hidden md:block">
+          {/* Menu Section */}
+          <div className="hidden md:block">
             <ul className="flex items-center gap-6 text-gray-600">
-               {
-                NavbarMenu.map((item) => {
-                    return (
-                        <li key={item.id}>
-                        <a href={item.link} className="inline-block py-1 px-3 hover:text-primary font-semibold">{item.title}</a>
-                        </li>
-                    )
-                })
-               } 
+              {NavbarMenu.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={item.link}
+                    className="inline-block py-1 px-3 hover:text-primary font-semibold"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
             </ul>
-            </div>
+          </div>
 
-            {/* Icons Section */}
-            <div className="flex items-center gap-4">
-             <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
-               <CiSearch/>
-             </button>
+          {/* Icons Section */}
+          <div className="flex items-center gap-4">
+            
+            <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
+              <CiSearch />
+            </button>
 
-             <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
-               <PiShoppingCartThin className=""/>
-             </button>
+            <button className="text-2xl hover:bg-primary hover:text-white rounded-full p-2 duration-200">
+              <PiShoppingCartThin />
+            </button>
 
-             <button className="hover:bg-primary text-primary font-semibold hover:text-white rounded-md border-2 border-primary px-6 py-2 duration-200 hidden md:block ">Login</button>
-            </div>
+            {/* Clerk Authentication Section */}
+            
+            {/* When user is NOT signed in */}
+            <SignedOut>
+              <SignInButton mode="modal">
+                <button className="hover:bg-primary text-primary font-semibold hover:text-white rounded-md border-2 border-primary px-6 py-2 duration-200 hidden md:block">
+                  Login
+                </button>
+              </SignInButton>
+            </SignedOut>
 
-            {/* Mobile Hamburger section */}
-            <div className="md:hidden" onClick={() => setOpen(!open)}>
-              <MdMenu className="text-4xl"/>
-            </div>
+            {/* When user IS signed in */}
+            <SignedIn>
+              <div className="flex items-center gap-3">
+                <UserButton afterSignOutUrl="/" />
+                
+                <SignOutButton>
+                  <button className="hover:bg-red-500 text-red-500 font-semibold hover:text-white rounded-md border-2 border-red-500 px-4 py-2 duration-200 hidden md:block">
+                    Logout
+                  </button>
+                </SignOutButton>
+              </div>
+            </SignedIn>
 
           </div>
-        </nav>
 
-        {/* Mobile Sidebar section */}
-        <ResponsiveMenu openMenu={open}/>
-            
-        </>
-    );
+          {/* Mobile Hamburger section */}
+          <div className="md:hidden" onClick={() => setOpen(!open)}>
+            <MdMenu className="text-4xl" />
+          </div>
+
+        </div>
+      </nav>
+
+      {/* Mobile Sidebar section */}
+      <ResponsiveMenu openMenu={open} />
+    </>
+  );
 }

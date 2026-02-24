@@ -7,12 +7,13 @@ import { BannerData } from './bannerdata'
 import { Banner2Data } from './bannerdata'
 
 import TabComp from './components/Tab/TabComp'
+import Reviews from './components/Reviews/Reviews'
 
 function App() {
   
 
   return (
-    <div className='overflow-x-hidden scroll-smooth'>
+    <div className='scroll-smooth w-full'>
       <Navbar/>
       <Hero/>
       <Equipments/>
@@ -31,6 +32,7 @@ function App() {
           )
         })
       }
+      <Reviews/>
     </div>
   )
 }

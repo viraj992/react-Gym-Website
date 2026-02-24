@@ -6,7 +6,7 @@ import { SlideLeft, SlideRight } from "../../utility/animation";
 export default function Hero(){
     return(
         <>
-         <section>
+         <section className="">
             <div className="container grid grid-cols-1 md:grid-cols-2 min-h-screen relative">
                 {/* Brand info */}
                 <div className="flex flex-col justify-center py-14 md:py-0 font-playfair">
@@ -38,7 +38,7 @@ export default function Hero(){
                       initial={{ x: 200, rotate: 45, opacity: 0 }}
                       animate={{ x: 0, rotate: 0, opacity: 1 }}
                       transition={{ duration: 1.3, ease: "easeOut" }}
-                    src={HeroImg} className="w-87.5 md:w-137.5 xl:w-175 filter drop-shadow-[-6px_8px_15px_rgba(0,0,0,0.2)]"/>
+                    src={HeroImg} className="w-full max-w-100 md:max-w-125 xl:max-w-175 object-contain filter drop-shadow-[-6px_8px_15px_rgba(0,0,0,0.2)]"/>
                 </div>
                 
             </div>
