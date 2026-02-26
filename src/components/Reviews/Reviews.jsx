@@ -8,6 +8,8 @@ export default function Reviews() {
     arrow : false,
     infinite : true,
     speed : 500,
+
+    slidesToShow: 3,
     slideToScroll : 1,
 
     autoplaySpeed: 2000,
@@ -51,7 +53,32 @@ export default function Reviews() {
 
         {/* Review cards */}
         <div>
-          <Slider {...setting}></Slider>
+          <Slider {... setting}>
+            {
+              ReviewData.map((data) => (
+                <div key={data.id} className='my-6'>
+                  <div className='flex flex-col gap-4 p-8 shadow-lg mx-4 rounded-xl bg-primary/10 relative'>
+                    {/* upper section */}
+                    <div className='flex justify-start items-center gap-5'>
+                      <img src={data.img} alt='' className='rounded-full w-16 h-16'/>
+                      <div>
+                        <p className='text-xl font-bold text-black/80 '>{data.name}</p>
+                        <p>{data.name}</p>
+                      </div>
+                    </div>
+
+                    {/* bottom section */}
+                    <div className='py-6 space-y-4 '>
+                      <p className='text-sm text-gray-500'>{data.text}</p>
+                      <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    
+                  </div>
+                </div>
+              ))
+            }
+          </Slider>
+          
         </div>
       </div>
     </div>

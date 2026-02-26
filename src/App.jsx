@@ -8,6 +8,7 @@ import { Banner2Data } from './bannerdata'
 
 import TabComp from './components/Tab/TabComp'
 import Reviews from './components/Reviews/Reviews'
+import Banner2 from './components/Banner/Banner2'
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
         })
       }
       <Reviews/>
+      <Banner2/>
     </div>
   )
 }
