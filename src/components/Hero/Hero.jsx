@@ -1,48 +1,80 @@
-import { FaPlay } from "react-icons/fa";
-import HeroImg from "../../assets/dumbell.png"
-import { motion } from "framer-motion";
-import { SlideLeft, SlideRight } from "../../utility/animation";
+export default function Hero() {
 
-export default function Hero(){
-    return(
-        <>
-         <section className="">
-            <div className="container grid grid-cols-1 md:grid-cols-2 min-h-screen relative">
-                {/* Brand info */}
-                <div className="flex flex-col justify-center py-14 md:py-0 font-playfair">
-                    <div className="text-center md:text-left space-y-6">
-                        <motion.h1
-                          variants={SlideRight(0.6)} initial="hidden" animate="visible" 
-                        className="text-5xl lg:text-6xl font-bold leading-relaxed xl:leading-normal ">Gym Gives you the perfect <span className="text-primary">Health</span>{" "}
-                        </motion.h1>
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-                        <motion.p 
-                          variants={SlideRight(1.2)} initial="hidden" animate="visible" 
-                        className="text-gray-600 xl:max-w-125">
-                            It is a long established fact that a reader will be by readable content of a page when are the best product.
-                        </motion.p>
+  return (
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center"
+      style={{
+        backgroundImage:
+          "url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-linear-to-r from-black/60 to-black/30"></div>
 
-                        {/* Button section */}
-                        <motion.div 
-                          variants={SlideRight(1.5)} initial="hidden" animate="visible" 
-                        className="flex justify-center items-center gap-8 md:justify-start mt-4!">
-                            <button className="bg-primary text-white font-semibold py-3 px-6 rounded-md hover:scale-110! duration-100 flex items-center gap-2">{" "}Order now</button>
-                            <button className="flex justify-center items-center gap-2"> <FaPlay/> Watch now</button>
-                        </motion.div>
-                    </div>
-                    
-                </div>
-                {/* Hero Image */}
-                <div className="flex justify-center items-center">
-                    <motion.img 
-                      initial={{ x: 200, rotate: 45, opacity: 0 }}
-                      animate={{ x: 0, rotate: 0, opacity: 1 }}
-                      transition={{ duration: 1.3, ease: "easeOut" }}
-                    src={HeroImg} className="w-full max-w-100 md:max-w-125 xl:max-w-175 object-contain filter drop-shadow-[-6px_8px_15px_rgba(0,0,0,0.2)]"/>
-                </div>
-                
-            </div>
-         </section>
-        </>
-    );
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Discover Beautiful Places
+          <br />
+          <span className="text-blue-400">Around the World</span>
+        </h1>
+
+        <p className="text-lg sm:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+          Embark on unforgettable journeys to the world's most breathtaking
+          destinations. Let us help you create memories that will last a lifetime.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={() => scrollToSection("#destinations")}
+            className="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg 
+                       hover:bg-blue-700 transition-all duration-300 shadow-lg 
+                       hover:shadow-xl transform hover:-translate-y-1"
+          >
+            Explore Destinations
+          </button>
+
+          <button
+            onClick={() => scrollToSection("#packages")}
+            className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-semibold rounded-lg 
+                       border-2 border-white/30 hover:bg-white/20 transition-all duration-300
+                       transform hover:-translate-y-1"
+          >
+            View Packages
+          </button>
+        </div>
+
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg
+          className="w-8 h-8 text-white/70"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </div>
+
+    </section>
+  );
 }

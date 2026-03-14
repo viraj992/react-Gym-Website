@@ -11,23 +11,23 @@ export const NavbarMenu = [
     },
     {
         id:2,
-        title: "Trainer",
-        link: "#"
+        title: "Destinations",
+        link: "/destinations"
     },
     {
         id:3,
-        title: "Program",
-        link: "#"
+        title: "Packages",
+        link: "/packages"
     },
     {
         id:4,
-        title: "Blogs",
-        link: "#"
+        title: "Reviews",
+        link: "/reviews"
     },
     {
         id:5,
-        title: "Pricing",
-        link: "#"
+        title: "Contact",
+        link: "/contact"
     },
 ]
 
